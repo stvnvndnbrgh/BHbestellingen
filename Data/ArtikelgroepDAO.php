@@ -38,4 +38,12 @@ class ArtikelgroepDAO {
         $dbh = null;
         return $artikelgroep;
     }
+    
+    public function createArtikelgroep($artikelgroepnaam) {
+        $sql = "insert into artikelgroep (artikelgroepnaam) values (artikelgroepnaam = :artikelgroepnaam";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':artikelgroepnaam' => $artikelgroepnaam));
+        $dbh = null;
+    }
 }
