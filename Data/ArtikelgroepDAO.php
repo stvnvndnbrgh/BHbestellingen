@@ -16,4 +16,26 @@ class ArtikelgroepDAO {
         }
         return $lijst;
     }
+    
+    public function getById($id) {
+        $sql = "select id, artikelgroepnaam from artikelgroep where id = :id";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':id' => $id));
+        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+        $artikelgroep = Artikelgroep::create($rij ['id'], $rij['artikelgroepnaam']);
+        $dbh = null;
+        return $artikelgroep;
+    }
+    
+    public function getByArtikelgroepnaam($artikelgroepnaam) {
+        $sql = "select id, artikelgroepnaam from artikelgroep where artikelgroepnaam = :artikelgroepnaam";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':artikelgroepnaam' => $artikelgroepnaam));
+        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+        $artikelgroep = Artikelgroep::create($rij ['id'], $rij['artikelgroepnaam']);
+        $dbh = null;
+        return $artikelgroep;
+    }
 }
