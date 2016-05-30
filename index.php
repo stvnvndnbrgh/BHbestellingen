@@ -2,4 +2,5 @@
 require_once 'Data/ArtikelgroepDAO.php';
 
 $thing = new ArtikelgroepDAO;
-$thing->createArtikelgroep("Schoenen");
+$groep = $thing->createArtikelgroep("Wandelstokken");
+print_r($groep);
