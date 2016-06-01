@@ -3,6 +3,8 @@
 
 class Leverancier {
     
+    private static $mapId= array();
+    
     private $id;
     private $leveranciernaam;
     private $email;
@@ -13,7 +15,14 @@ class Leverancier {
         $this->email = $email;
     }
     
-    public function getId() {
+    public static function create($id, $leverancier, $email) {
+        if(!isset(self::$mapId[$id])){
+            self::$mapId[$id] = new Leverancier ($id, $leverancier, $email);
+        }
+        return self::$mapId[$id];
+    }
+
+        public function getId() {
         return $this->id;
     }
 
