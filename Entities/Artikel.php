@@ -3,6 +3,8 @@
 
 class Artikel {
     
+    private static $mapId = array();
+
     private $id;
     private $artikelnaam;
     private $artikelgroep_id;
@@ -17,7 +19,14 @@ class Artikel {
         $this->leverancier_id = $leverancier_id;
     }
     
-    public function getId() {
+    public static function create($id, $artikelnaam, $artikelgroep_id, $barcode, $leverancier_id) {
+        if(!isset(self::$mapId[$id])) {
+            self::$mapId[$id] = new Artikel($id, $artikelnaam, $artikelgroep_id, $barcode, $leverancier_id);
+        }
+        return self::$mapId[$id];
+    }
+
+        public function getId() {
         return $this->id;
     }
 
