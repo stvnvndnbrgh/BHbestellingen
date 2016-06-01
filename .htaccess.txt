@@ -1,0 +1,3 @@
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !favicon.ico
+RewriteRule .* index.php [L]
