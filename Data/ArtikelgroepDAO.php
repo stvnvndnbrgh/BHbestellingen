@@ -1,6 +1,5 @@
 <?php
 //Data/ArtikelgroepDAO.php
-
 require_once 'DBConfig.php';
 require_once 'Entities/Artikelgroep.php';
 
@@ -14,6 +13,7 @@ class ArtikelgroepDAO {
             $artikelgroep = Artikelgroep::create($rij['id'], $rij['artikelgroepnaam']);
             array_push($lijst, $artikelgroep);
         }
+        $dbh = null;
         return $lijst;
     }
     
@@ -44,9 +44,9 @@ class ArtikelgroepDAO {
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':artikelgroepnaam' => $artikelgroepnaam));
-        $artikelgroepId = $dbh->lastInsertId();
-        $AG = Artikelgroep::create($artikelgroepId, $artikelgroepnaam);
+        //$artikelgroepId = $dbh->lastInsertId();
+        //$AG = Artikelgroep::create($artikelgroepId, $artikelgroepnaam);
         $dbh = null;
-        print_r($AG);
+        //print_r($AG);
     }
 }

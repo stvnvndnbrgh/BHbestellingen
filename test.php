@@ -1,5 +1,6 @@
 <?php
-require_once 'Data/ArtikelgroepDAO.php';
+require_once 'Data/LeverancierDAO.php';
 
-$thing = new ArtikelgroepDAO;
-$thing->createArtikelgroep("Werkuren");
+$thing = new LeverancierDAO;
+$lev = $thing->getByLeveranciernaam("Distrac");
+var_dump($lev);
