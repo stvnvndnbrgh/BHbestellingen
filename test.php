@@ -1,6 +1,6 @@
 <?php
-require_once 'Data/LeverancierDAO.php';
+require_once 'Data/StatusDAO.php';
 
-$thing = new LeverancierDAO;
-$lev = $thing->getByLeveranciernaam("Distrac");
+$thing = new StatusDAO;
+$lev = $thing->getAll();
 var_dump($lev);
