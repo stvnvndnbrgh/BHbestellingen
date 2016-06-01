@@ -1,0 +1,17 @@
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #CCC;
+}
+
+body{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 1em;
+}
