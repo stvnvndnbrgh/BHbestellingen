@@ -26,11 +26,11 @@ class BestellingDAO {
         return $lijst;
     }
     
-    public function createBestelling($klant_id, $artikel_id) {
-        $sql = "insert into bestelling (klant_id, artikel_id, status_id) values (:klant_id, :artikel_id, 1)";
+    public function createBestelling($klant_id, $artikel_id, $status_id) {
+        $sql = "insert into bestelling (klant_id, artikel_id, status_id) values (:klant_id, :artikel_id, :status_id)";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
-        $stmt->execute(array(':klant_id' => $klant_id, ':artikel_id' => $artikel_id));
+        $stmt->execute(array(':klant_id' => $klant_id, ':artikel_id' => $artikel_id, ':status_id' => $status_id));
         $dbh = null;
     }
 }
