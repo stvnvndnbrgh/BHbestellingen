@@ -12,13 +12,25 @@
                 <tr>
                     <td>Klant:</td>
                     <td>
-                        <input type="text" name="txtKlant" />
+                        <select name="selKlant">
+                            <?php foreach($klantLijst as $klant) { ?>
+                            <option value="<?php print($klant->getId()); ?>">
+                                <?php print($klant->getVoornaam()." ".$klant->getFamilienaam()) ?>
+                            </option>
+                            <?php } ?>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Artikel:</td>
                     <td>
-                        <input type="text" name="txtArtikel" />
+                        <select name="selArtikel">
+                            <?php foreach($artikelLijst as $artikel){ ?>
+                            <option value="<?php print($artikel->getId()); ?>">
+                                <?php print($artikel->getArtikelnaam()) ?>
+                            </option>
+                            <?php } ?>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -26,7 +38,7 @@
                     <td>
                         <select name="selStatus">
                             <?php foreach($statusLijst as $status) { ?>
-                            <option value="<?php print($status->getStatus_id()); ?>" <?php if($status->getStatus_id() == 1){print("autofocus");} ?>>
+                            <option value="<?php print($status->getId()); ?>" <?php if($status->getStatus() == 1){print("autofocus");} ?>>
                                 <?php print($status->getStatus()); ?>
                             </option>
                             <?php } ?>
