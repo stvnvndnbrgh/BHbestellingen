@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <h1>Bestelling</h1>
+        <h1>Bestellingen</h1>
         <?php //var_dump($lijst); ?>
         <table border: 1px solid black>
             <tr>
@@ -15,6 +15,7 @@
                 <th>Klant</th>
                 <th>Leverancier</th>
                 <th>Status</th>
+                <th>Bewerken</th>
                 <th>Createdate</th>
                 <th>Editdate</th>
             </tr>
@@ -26,8 +27,17 @@
                         $bestelling->getKlant_id()->getFamilienaam()); ?></td>
                 <td><?php print($bestelling->getArtikel_id()->getLeverancier_id()->getLeveranciernaam()); ?></td>
                 <td><?php print($bestelling->getStatus_id()->getStatus()); ?></td>
-                <td><?php print($bestelling->getEditdate()); ?></td>
-                <td><?php print($bestelling->getCreatedate()); ?></td>
+                <td>
+                    <a href="bewerkbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/edit.png" /></a>
+                    <a href="verwijderbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/delete.png" /></a>
+                </td>
+                <?php
+                    $ed = new DateTime($bestelling->getEditdate());
+                    $cd = new DateTime($bestelling->getCreatedate());
+                    $format = "D j M y - H:i"
+                ?>
+                <td><?php print($ed->format($format)); ?></td>
+                <td><?php print($cd->format($format)); ?></td>
             </tr>
             <?php } ?>
         </table>

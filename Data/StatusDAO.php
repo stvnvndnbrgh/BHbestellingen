@@ -18,12 +18,12 @@ class StatusDAO {
     }
     
     public function getById($id) {
-        $sql = "select id, stati from stati where id = :id";
+        $sql = "select id, stati, color from stati where id = :id";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':id' => $id));
         $rij = $stmt->fetch(PDO::FETCH_ASSOC);
-        $leverancier = Status::create($rij['id'], $rij['stati'], $rij['color']);
+        $status = Status::create($rij['id'], $rij['stati'], $rij['color']);
         $dbh = null;
         return $status;
     }

@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Nieuwe Bestelling</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <h1>Bestelling aanmaken</h1>
@@ -34,7 +35,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Status</td>
+                    <td>Status:</td>
                     <td>
                         <select name="selStatus">
                             <?php foreach($statusLijst as $status) { ?>

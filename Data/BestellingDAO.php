@@ -22,10 +22,28 @@ class BestellingDAO {
             $status = Status::create($rij['status_id'], $rij['stati'], $rij['color']);
             $bestelling = new Bestelling($rij['id'], $klant, $artikel, $status, $rij['createdate'], $rij['editdate']);
             array_push($lijst, $bestelling);            
-        }   
+        }
+        $dbh = null;
         return $lijst;
     }
     
+    public function getById($id) {
+        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and bestelling.id = :id";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':id' => $id));
+        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+        $klantDao = new KlantDAO();
+        $klant = $klantDao->getById($rij['klant_id']);
+        $artikelDao = new ArtikelDAO();
+        $artikel = $artikelDao->getById($rij['artikel_id']);
+        $status = Status::create($rij['status_id'], $rij['stati'], $rij['color']);
+        $bestelling = new Bestelling($rij['id'], $klant, $artikel, $status, $rij['createdate'], $rij['editdate']);
+        $dbh = null;
+        return $bestelling;
+    }
+
+
     public function createBestelling($klant_id, $artikel_id, $status_id) {
         $sql = "insert into bestelling (klant_id, artikel_id, status_id) values (:klant_id, :artikel_id, :status_id)";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
@@ -33,4 +51,21 @@ class BestellingDAO {
         $stmt->execute(array(':klant_id' => $klant_id, ':artikel_id' => $artikel_id, ':status_id' => $status_id));
         $dbh = null;
     }
-}
+    
+    public function deleteBestelling($id) {
+        $sql = "delete from bestelling where id = :id";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':id' => $id));
+        $dbh = null;
+    }
+    
+    public function updateBestelling($bestelling) {
+        $sql = "update bestelling set status_id = :stati where bestelling.id = :id";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $idii = $bestelling->getStatus_id();
+        $stmt->execute(array(':stati' => $bestelling->getStatus_id(), ':id' => $bestelling->getId()));
+        $dbh = null;
+    }
+} 
