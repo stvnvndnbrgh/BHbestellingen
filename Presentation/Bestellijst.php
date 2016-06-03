@@ -8,16 +8,16 @@
     </head>
     <body>
         <h1>Bestellingen</h1>
-        <?php //var_dump($lijst); ?>
+        <a href="voegbestellingtoe.php"><button type="button">Nieuwe bestelling</button></a><br/><br />
         <table border: 1px solid black>
             <tr>
                 <th>Artikel</th>
                 <th>Klant</th>
                 <th>Leverancier</th>
                 <th>Status</th>
-                <th>Bewerken</th>
-                <th>Createdate</th>
+                <th>Bewerken</th>                
                 <th>Editdate</th>
+                <th>Createdate</th>
             </tr>
             <?php foreach($lijst as $bestelling){ ?>
             
@@ -35,7 +35,7 @@
                     $ed = new DateTime($bestelling->getEditdate());
                     $cd = new DateTime($bestelling->getCreatedate());
                     $format = "D j M y - H:i"
-                ?>
+                ?>                
                 <td><?php print($ed->format($format)); ?></td>
                 <td><?php print($cd->format($format)); ?></td>
             </tr>

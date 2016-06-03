@@ -3,11 +3,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Update Bestelling</title>
+        <title>Update Bestelling status</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <h1>Update Bestelling</h1>
+        
         <form method="post" action="bewerkbestelling.php?action=bewerkbestelling&id=<?php print($bestelling->getId());?>">
             <table>
                 <tr>
@@ -23,15 +24,22 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Current Status:</td>
+                    <td>
+                        <?php print($bestelling->getStatus_id()->getStatus()); ?>
+                    </td>
+                </tr>
+                <tr>
                     <td>Status:</td>
                     <td>
                         <select name="selStatus">
                             <?php foreach($statusLijst as $status) { ?>
-                            <option value="<?php print($status->getId()); ?>" <?php if($status->getStatus() == 4){print(" selected");} ?>>
+                            <option value="<?php print($status->getId()); ?>" <?php if($status->getId() == $bestelling->getStatus_id()->getId()){print(' selected');} ?>>
                                 <?php print($status->getStatus()); ?>
                             </option>
                             <?php } ?>
                         </select>
+                        
                     </td>
                 </tr>
                 <tr>
