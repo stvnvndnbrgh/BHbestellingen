@@ -32,9 +32,6 @@ class BestellingService {
         //$status = $statusDao->getById($statusId);
         $bestelling = $bestellingDao->getById($id);
         $bestelling->setStatus_id($statusId);
-        print("<pre>");
-        print_r($bestelling);
-        print("</pre>");
         $bestellingDao->updateBestelling($bestelling);
     }
 }

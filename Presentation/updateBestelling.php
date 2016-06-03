@@ -30,7 +30,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Status:</td>
+                    <td>New Status:</td>
                     <td>
                         <select name="selStatus">
                             <?php foreach($statusLijst as $status) { ?>
