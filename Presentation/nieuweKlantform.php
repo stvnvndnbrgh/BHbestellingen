@@ -14,25 +14,35 @@
                     <td>
                         <input type="text" name="txtVoornaam">
                     </td>
+                </tr>
+                <tr>
                     <td>Familienaam:</td>
                     <td>
                         <input type="text" name="txtFamilienaam">
                     </td>
+                </tr>
+                <tr>
                     <td>Adres:</td>
                     <td>
                         <input type="text" name="txtAdres">
                     </td>
+                </tr>
+                <tr>
                     <td>Gemeente:</td>
                     <td>
                         <input type="text" name="txtGemeente">
                     </td>
+                </tr>
+                <tr>
                     <td>Telefoon:</td>
                     <td>
                         <input type="text" name="txtTelefoon">
                     </td>
-                    <td>Voornaam:</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
                     <td>
-                        <input type="text" name="txtVoornaam">
+                        <input type="text" name="txtEmail">
                     </td>
                 </tr>
             </table>
