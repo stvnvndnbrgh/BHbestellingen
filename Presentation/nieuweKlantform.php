@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>BH-Nieuwe klant</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <h1>Klant aanmaken</h1>
@@ -22,6 +23,18 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Telefoon:</td>
+                    <td>
+                        <input type="text" name="txtTelefoon">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="text" name="txtEmail">
+                    </td>
+                </tr>
+                <tr>
                     <td>Adres:</td>
                     <td>
                         <input type="text" name="txtAdres">
@@ -34,15 +47,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Telefoon:</td>
+                    <td></td>
                     <td>
-                        <input type="text" name="txtTelefoon">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td>
-                        <input type="text" name="txtEmail">
+                        <input type="submit" value="Aanmaken">
                     </td>
                 </tr>
             </table>
