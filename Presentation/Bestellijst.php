@@ -19,15 +19,14 @@
                 <th>Editdate</th>
                 <th>Createdate</th>
             </tr>
-            <?php foreach($lijst as $bestelling){ ?>
-            
+            <?php foreach($lijst as $bestelling){ ?>          
             <tr bgcolor = "<?php print($bestelling->getStatus_id()->getColor()); ?>">
                 <td><?php print($bestelling->getArtikel_id()->getArtikelnaam()); ?></td>
                 <td><?php print($bestelling->getKlant_id()->getVoornaam()." ".
                         $bestelling->getKlant_id()->getFamilienaam()); ?></td>
                 <td><?php print($bestelling->getArtikel_id()->getLeverancier_id()->getLeveranciernaam()); ?></td>
                 <td><?php print($bestelling->getStatus_id()->getStatus()); ?></td>
-                <td>
+                <td align = center>
                     <a href="bewerkbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/edit.png" /></a>
                     <a href="verwijderbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/delete.png" /></a>
                 </td>

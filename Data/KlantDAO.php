@@ -4,6 +4,7 @@ require_once 'DBConfig.php';
 require_once 'Data/PostcodeDAO.php';
 require_once 'Entities/Klant.php';
 require_once 'Entities/Postcode.php';
+require_once 'Exceptions/NoPostcodeexception.php';
 
 class KlantDAO {
     public function getAll() {
@@ -36,6 +37,9 @@ class KlantDAO {
         $pc = new PostcodeDAO();
         $postcode = $pc->getByGemeente($gemeente);
         $postcodeId = $postcode->getId();
+        if(!$postcodeId){
+            throw new NoPostcodeException();
+        }
         $sql = "insert into klant (voornaam, familienaam, adres, postcode_id, telefoonnr, email) values (:voornaam, :familienaam, :adres, :postcode_id, :telefoonnr, :email)";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);

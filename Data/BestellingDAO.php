@@ -27,6 +27,24 @@ class BestellingDAO {
         return $lijst;
     }
     
+    public function getAllActiv() {
+        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and status_id <> 6 order by stati.id asc, createdate";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $resultSet = $dbh->query($sql);
+        $lijst = array();
+        foreach($resultSet as $rij){
+            $klantDao = new KlantDAO();
+            $klant = $klantDao->getById($rij['klant_id']);
+            $artikelDao = new ArtikelDAO();
+            $artikel = $artikelDao->getById($rij['artikel_id']);
+            $status = Status::create($rij['status_id'], $rij['stati'], $rij['color']);
+            $bestelling = new Bestelling($rij['id'], $klant, $artikel, $status, $rij['createdate'], $rij['editdate']);
+            array_push($lijst, $bestelling);            
+        }
+        $dbh = null;
+        return $lijst;
+    }
+    
     public function getById($id) {
         $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and bestelling.id = :id";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);

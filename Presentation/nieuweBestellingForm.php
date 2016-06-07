@@ -20,6 +20,7 @@
                             </option>
                             <?php } ?>
                         </select>
+                        <a href="voegklanttoe.php"><button type="button">Nieuwe klant</button></a>
                     </td>
                 </tr>
                 <tr>
