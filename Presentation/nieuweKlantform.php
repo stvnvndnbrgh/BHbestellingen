@@ -14,6 +14,7 @@
         }
         ?>
         <h1>Klant aanmaken</h1>
+        
         <form method="post" action="voegklanttoe.php?action=nieuweklant">
             <table>
                 <tr>
@@ -84,7 +85,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Aanmaken">
+                        <input type="submit" value="Aanmaken"><a href="toonallebestellingen.php"><button type="button">Cancel</button></a>
                     </td>
                 </tr>
             </table>
