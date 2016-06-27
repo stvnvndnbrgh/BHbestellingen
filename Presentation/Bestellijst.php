@@ -8,7 +8,8 @@
     </head>
     <body>
         <h1>Bestellingen</h1>
-        <a href="voegbestellingtoe.php"><button type="button">Nieuwe bestelling</button></a><br/><br />
+        <a href="voegbestellingtoe.php"><button type="button">Nieuwe bestelling</button></a>
+        <a href="voegklanttoe.php"><button type="button">Nieuwe klant</button></a><br/><br />
         <table border: 1px solid black>
             <tr>
                 <th>Artikel</th>
