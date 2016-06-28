@@ -10,7 +10,7 @@ require_once 'Entities/Bestelling.php';
 
 class BestellingDAO {
     public function getAll() {
-        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id order by stati.id asc, createdate";
+        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id order by stati.id asc, editdate";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
@@ -28,7 +28,7 @@ class BestellingDAO {
     }
     
     public function getAllActiv() {
-        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and status_id <> 6 order by stati.id asc, createdate";
+        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and status_id <> 6 order by stati.id asc, editdate";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
