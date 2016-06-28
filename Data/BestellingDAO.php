@@ -86,4 +86,8 @@ class BestellingDAO {
         $stmt->execute(array(':stati' => $bestelling->getStatus_id(), ':id' => $bestelling->getId()));
         $dbh = null;
     }
+    
+    public function getBestelLijstPerLeverancier($leverancierid){
+        $sql = "select id, klant_id, artikel_id, status_id from bestellingen where ";
+    }
 } 
