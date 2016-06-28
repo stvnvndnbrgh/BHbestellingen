@@ -10,7 +10,7 @@ require_once 'Entities/Bestelling.php';
 
 class BestellingDAO {
     public function getAll() {
-        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id order by stati.id asc, editdate";
+        $sql = "select bestelling.id, klant_id, artikel_id, aantal, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id order by stati.id asc, editdate";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
@@ -20,7 +20,7 @@ class BestellingDAO {
             $artikelDao = new ArtikelDAO();
             $artikel = $artikelDao->getById($rij['artikel_id']);
             $status = Status::create($rij['status_id'], $rij['stati'], $rij['color']);
-            $bestelling = new Bestelling($rij['id'], $klant, $artikel, $status, $rij['createdate'], $rij['editdate']);
+            $bestelling = new Bestelling($rij['id'], $klant, $artikel, $rij['aantal'], $status, $rij['createdate'], $rij['editdate']);
             array_push($lijst, $bestelling);            
         }
         $dbh = null;
@@ -28,7 +28,7 @@ class BestellingDAO {
     }
     
     public function getAllActiv() {
-        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and status_id <> 6 order by stati.id asc, editdate";
+        $sql = "select bestelling.id, klant_id, artikel_id, aantal, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and status_id <> 6 order by stati.id asc, editdate";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
@@ -38,7 +38,7 @@ class BestellingDAO {
             $artikelDao = new ArtikelDAO();
             $artikel = $artikelDao->getById($rij['artikel_id']);
             $status = Status::create($rij['status_id'], $rij['stati'], $rij['color']);
-            $bestelling = new Bestelling($rij['id'], $klant, $artikel, $status, $rij['createdate'], $rij['editdate']);
+            $bestelling = new Bestelling($rij['id'], $klant, $artikel, $rij['aantal'], $status, $rij['createdate'], $rij['editdate']);
             array_push($lijst, $bestelling);            
         }
         $dbh = null;
@@ -46,7 +46,7 @@ class BestellingDAO {
     }
     
     public function getById($id) {
-        $sql = "select bestelling.id, klant_id, artikel_id, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and bestelling.id = :id";
+        $sql = "select bestelling.id, klant_id, artikel_id, aantal, status_id, stati, color, createdate, editdate from bestelling, stati where status_id = stati.id and bestelling.id = :id";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':id' => $id));
@@ -56,17 +56,17 @@ class BestellingDAO {
         $artikelDao = new ArtikelDAO();
         $artikel = $artikelDao->getById($rij['artikel_id']);
         $status = Status::create($rij['status_id'], $rij['stati'], $rij['color']);
-        $bestelling = new Bestelling($rij['id'], $klant, $artikel, $status, $rij['createdate'], $rij['editdate']);
+        $bestelling = new Bestelling($rij['id'], $klant, $artikel, $rij['aantal'], $status, $rij['createdate'], $rij['editdate']);
         $dbh = null;
         return $bestelling;
     }
 
 
-    public function createBestelling($klant_id, $artikel_id, $status_id) {
-        $sql = "insert into bestelling (klant_id, artikel_id, status_id) values (:klant_id, :artikel_id, :status_id)";
+    public function createBestelling($klant_id, $artikel_id, $aantal, $status_id) {
+        $sql = "insert into bestelling (klant_id, artikel_id, aantal, status_id) values (:klant_id, :artikel_id, :aantal, :status_id)";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
-        $stmt->execute(array(':klant_id' => $klant_id, ':artikel_id' => $artikel_id, ':status_id' => $status_id));
+        $stmt->execute(array(':klant_id' => $klant_id, ':artikel_id' => $artikel_id,':aantal' => $aantal, ':status_id' => $status_id));
         $dbh = null;
     }
     

@@ -6,14 +6,16 @@ class Bestelling {
     private $id;
     private $klant_id;
     private $artikel_id;
+    private $aantal;
     private $status_id;
     private $createdate;
     private $editdate;
     
-    public function __construct($id, $klant_id, $artikel_id, $status_id, $createdate, $editdate) {
+    public function __construct($id, $klant_id, $artikel_id, $aantal, $status_id, $createdate, $editdate) {
         $this->id = $id;
         $this->klant_id = $klant_id;
         $this->artikel_id = $artikel_id;
+        $this->aantal = $aantal;
         $this->status_id = $status_id;
         $this->createdate = $createdate;
         $this->editdate = $editdate;
@@ -29,6 +31,10 @@ class Bestelling {
 
     public function getArtikel_id() {
         return $this->artikel_id;
+    }
+    
+    public function getAantal(){
+        return $this->aantal;
     }
 
     public function getStatus_id() {
@@ -50,6 +56,10 @@ class Bestelling {
 
     public function setArtikel_id($artikel_id) {
         $this->artikel_id = $artikel_id;
+    }
+    
+    public function setAantal($aantal) {
+        $this->aantal = $aantal;
     }
 
     public function setStatus_id($status_id) {

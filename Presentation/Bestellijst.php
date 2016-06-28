@@ -16,6 +16,7 @@
             <tr>
                 <th>Klant</th>
                 <th>Artikel</th>
+                <th>Aantal</th>
                 <th>Leverancier</th>
                 <th>Status</th>
                 <th>Bewerken</th>                
@@ -28,6 +29,7 @@
                 <td><?php print($bestelling->getKlant_id()->getVoornaam()." ".
                         $bestelling->getKlant_id()->getFamilienaam()); ?></td>
                 <td><?php print($bestelling->getArtikel_id()->getArtikelnaam()); ?></td>
+                <td><?php print($bestelling->getAantal()); ?></td>
                 <td><?php print($bestelling->getArtikel_id()->getLeverancier_id()->getLeveranciernaam()); ?></td>
                 <td><?php print($bestelling->getStatus_id()->getStatus()); ?></td>
                 <td align = center>

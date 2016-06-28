@@ -10,9 +10,9 @@ class BestellingService {
         return $lijst;
     }
     
-    public function voegBestellingToe($klant_id, $artikel_id, $status_id) {
+    public function voegBestellingToe($klant_id, $artikel_id, $aantal, $status_id) {
         $bestelDao = new BestellingDAO();
-        $bestelDao->createBestelling($klant_id, $artikel_id, $status_id);
+        $bestelDao->createBestelling($klant_id, $artikel_id, $aantal, $status_id);
     }
     
     public function verwijderBestelling($id) {

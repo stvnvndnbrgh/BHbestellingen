@@ -7,7 +7,7 @@ require_once 'Business/ArtikelService.php';
 
 if(isset($_GET['action']) && $_GET['action'] == "nieuwebestelling"){
     $bestelSvc = new BestellingService();
-    $bestelSvc->voegBestellingToe($_POST['selKlant'], $_POST['selArtikel'], $_POST['selStatus']);
+    $bestelSvc->voegBestellingToe($_POST['selKlant'], $_POST['selArtikel'], $_POST['txtAantal'], $_POST['selStatus']);
     header("location: toonallebestellingen.php");
     exit(0);
 }else{

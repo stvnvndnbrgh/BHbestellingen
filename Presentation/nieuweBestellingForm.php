@@ -36,6 +36,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Aantal:</td>
+                    <td>
+                        <input type="text" name="txtAantal" value="1">
+                    </td>
+                </tr>
+                <tr>
                     <td>Status:</td>
                     <td>
                         <select name="selStatus">
