@@ -7,4 +7,9 @@ class LeverancierService {
         $leverancierDao = new LeverancierDAO();
         $leverancierDao->createLeverancier($leveranciernaam, $email);
     }
+    public function getLeveranciersOverzicht(){
+        $leverancierDao = new LeverancierDAO();
+        $lijst = $leverancierDao->getAll();
+        return $lijst;
+    }
 }

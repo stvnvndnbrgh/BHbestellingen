@@ -9,7 +9,7 @@ class ArtikelgroepDAO {
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
-        foreach($resultset as $rij){
+        foreach($resultSet as $rij){
             $artikelgroep = Artikelgroep::create($rij['id'], $rij['artikelgroepnaam']);
             array_push($lijst, $artikelgroep);
         }
