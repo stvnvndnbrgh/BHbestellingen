@@ -34,16 +34,16 @@ class KlantDAO {
     }
     
     public function createKlant($voornaam, $familienaam, $adres, $gemeente, $telefoonnr, $email) {
-        $pc = new PostcodeDAO();
-        $postcode = $pc->getByGemeente($gemeente);
-        $postcodeId = $postcode->getId();
-        if(!$postcodeId){
-            throw new NoPostcodeException();
-        }
+        //$pc = new PostcodeDAO();
+        //$postcode = $pc->getByGemeente($gemeente);
+        //$postcodeId = $postcode->getId();
+        //if(!$postcodeId){
+        //    throw new NoPostcodeException();
+        //}
         $sql = "insert into klant (voornaam, familienaam, adres, postcode_id, telefoonnr, email) values (:voornaam, :familienaam, :adres, :postcode_id, :telefoonnr, :email)";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
-        $stmt->execute(array(':voornaam' => $voornaam, ':familienaam' => $familienaam, ':adres' => $adres, ':postcode_id' => $postcodeId, ':telefoonnr' => $telefoonnr, ':email' => $email));
+        $stmt->execute(array(':voornaam' => $voornaam, ':familienaam' => $familienaam, ':adres' => $adres, ':postcode_id' => $gemeente, ':telefoonnr' => $telefoonnr, ':email' => $email));
         $dbh = null;
     }
 }

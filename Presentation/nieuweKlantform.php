@@ -83,6 +83,16 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Gemeente:</td>
+                    <td>
+                        <select name="selGemeente">
+                            <?php foreach ($gemeentelijst as $gemeente){ ?>
+                            <option value=<?php print($gemeente->getId()); if($gemeente->getGemeente() == "LEUVEN"){print(" selected");}?>> <?php print($gemeente->getPostcode() ." - ". $gemeente->getGemeente()) ?> </option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td></td>
                     <td>
                         <input type="submit" value="Aanmaken"><a href="toonallebestellingen.php"><button type="button">Cancel</button></a>
