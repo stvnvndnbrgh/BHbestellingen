@@ -8,5 +8,10 @@ class ArtikelgroepService {
         $Lijst = $ArtikelgroepDao->getAll();
         return $Lijst;
     }
+    
+    public function voegArtikelGroepToe($artikelgroepnaam){
+        $ArtikelgroepDao = new ArtikelgroepDAO();
+        $ArtikelgroepDao->createArtikelgroep($artikelgroepnaam);
+    }
 }
 

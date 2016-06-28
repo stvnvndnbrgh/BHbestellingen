@@ -82,7 +82,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Aanmaken"><a href="toonallebestellingen.php"><button type="button">Cancel</button></a>
+                        <input type="submit" value="Aanmaken"><a href="voegbestellingtoe.php"><button type="button">Cancel</button></a>
                     </td>
                 </tr>
             </table>

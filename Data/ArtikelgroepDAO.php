@@ -5,7 +5,7 @@ require_once 'Entities/Artikelgroep.php';
 
 class ArtikelgroepDAO {
     public function getAll() {
-        $sql = "select id, artikelgroepnaam from artikelgroep";
+        $sql = "select id, artikelgroepnaam from artikelgroep order by artikelgroepnaam";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();

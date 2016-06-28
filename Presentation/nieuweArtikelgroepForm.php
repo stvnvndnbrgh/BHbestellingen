@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<!--Presentation/nieuweLeverancierForm.php-->
+<!--Presentation/nieuweArtikelgroepForm.php-->
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>BH-Nieuwe Leverancier</title>
+        <title>BH-Nieuwe ArtikelGroep</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <h1>Leverancier aanmaken</h1>
-        
-        <form method="post" action="voegleveranciertoe.php?action=nieuweleverancier">
+        <h1>Artikelgroep aanmaken</h1>
+        <form method="post" action="voegartikelgroeptoe.php?action=nieuweartikelgroep">
             <table>
                 <tr>
-                    <td>Leverancier:</td>
+                    <td>Artikelgroep:</td>
                     <td>
-                        <input type="text" name="txtLeverancier">
-                    </td>
-                </tr>
-                <tr>
-                    <td>E-mail:</td>
-                    <td>
-                        <input type="text" name="txtEmail">
+                        <input type="text" name="txtArtikelgroep"
                     </td>
                 </tr>
                 <tr>
@@ -30,6 +23,5 @@
                     </td>
                 </tr>
             </table>
-        </form>
     </body>
 </html>
