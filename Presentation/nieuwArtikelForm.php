@@ -43,13 +43,13 @@
                                 <?php print($leverancier->getLeveranciernaam()); ?>
                             </option>
                             <?php } ?>
-                        </select>
+                        </select><a href="voegleveranciertoe.php"><button type="button">Nieuwe leverancier</button></a>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Aanmaken">
+                        <input type="submit" value="Aanmaken"><a href="toonallebestellingen.php"><button type="button">Cancel</button></a>
                     </td>
                 </tr>
             </table>

@@ -32,7 +32,7 @@
                                 <?php print($artikel->getArtikelnaam()) ?>
                             </option>
                             <?php } ?>
-                        </select>
+                        </select><a href="voegartikeltoe.php"><button type="button">Nieuw artikel</button></a>
                     </td>
                 </tr>
                 <tr>
