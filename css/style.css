@@ -20,3 +20,7 @@ body{
 input, select, button{
     font-family: monospace;
 }
+
+.inp{
+    width:30%;
+}

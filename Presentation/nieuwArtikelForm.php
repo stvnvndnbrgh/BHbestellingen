@@ -13,13 +13,13 @@
                 <tr>
                     <td>Artikel:</td>
                     <td>
-                        <input type="text" name="txtArtikel">
+                        <input class="inp" type="text" name="txtArtikel">
                     </td>
                 </tr>
                 <tr>
                     <td>Artikelgroep:</td>
                     <td>
-                        <select name="selArtikelgroep">
+                        <select class="inp" name="selArtikelgroep">
                             <?php foreach($artikelGroepLijst as $artikelGroep) {?>
                             <option value="<?php print($artikelGroep->getId()); ?>">
                                 <?php print($artikelGroep->getArtikelgroepnaam()); ?>
@@ -31,13 +31,13 @@
                 <tr>
                     <td>Barcode:</td>
                     <td>
-                        <input type="text" name="txtBarcode">                    
+                        <input class="inp" type="text" name="txtBarcode">                    
                     </td>
                 </tr>
                 <tr>
                     <td>Leverancier:</td>
                     <td>
-                        <select name="selLeverancier">
+                        <select class="inp" name="selLeverancier">
                             <?php foreach ($leverancierslijst as $leverancier) {?>
                             <option value="<?php print($leverancier->getId()); ?>">
                                 <?php print($leverancier->getLeveranciernaam()); ?>
