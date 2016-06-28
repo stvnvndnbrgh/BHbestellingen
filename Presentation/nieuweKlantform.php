@@ -70,24 +70,11 @@
                 <tr>
                     <td>Gemeente:</td>
                     <td>
-                        <input type="text" name="txtGemeente" value="<?php
-                        if(isset($error)) {
-                            print_r($_SESSION['txtGemeente']);
-                            
-                        }?>">                    
-                            <?php
-                            if(isset($error) && $error == "gemeentebestaatniet") {
-                                print("Gemeente bestaat niet!");
-                            }
-                            ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gemeente:</td>
-                    <td>
                         <select name="selGemeente">
                             <?php foreach ($gemeentelijst as $gemeente){ ?>
-                            <option value=<?php print($gemeente->getId()); if($gemeente->getGemeente() == "LEUVEN"){print(" selected");}?>> <?php print($gemeente->getPostcode() ." - ". $gemeente->getGemeente()) ?> </option>
+                            <option value=<?php print($gemeente->getId()); if($gemeente->getGemeente() == "LEUVEN"){print(" selected");}?>>
+                                <?php print($gemeente->getPostcode() ." - ". $gemeente->getGemeente()) ?> 
+                            </option>
                             <?php } ?>
                         </select>
                     </td>
