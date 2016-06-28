@@ -16,3 +16,8 @@ body{
     font-weight: bold;
     font-size: 1em;
 }
+
+input, select{
+    font-family: monospace;
+    width: 50%
+}

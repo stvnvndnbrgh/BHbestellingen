@@ -50,7 +50,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Toevoegen" />
+                        <input type="submit" value="Toevoegen" /><a href="toonallebestellingen.php"><button type="button">Cancel</button></a>
                     </td>
                 </tr>
             </table>
