@@ -9,7 +9,8 @@
     <body>
         <h1>Bestellingen</h1>
         <a href="voegbestellingtoe.php"><button type="button">Nieuwe bestelling</button></a>
-        <a href="voegklanttoe.php"><button type="button">Nieuwe klant</button></a><br/><br />
+        <a href="voegklanttoe.php"><button type="button">Nieuwe klant</button></a>
+        <a href="voegleveranciertoe.php"><button type="button">Nieuwe leverancier</button></a><br/><br />
         <table border: 1px solid black>
             <tr>
                 <th>Klant</th>
