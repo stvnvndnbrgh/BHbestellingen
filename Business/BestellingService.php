@@ -34,4 +34,10 @@ class BestellingService {
         $bestelling->setStatus_id($statusId);
         $bestellingDao->updateBestelling($bestelling);
     }
+    
+    public function getLeverancierTeBestellenLijst() {
+        $bestelDao = new BestellingDAO();
+        $lijst = $bestelDao->getLijstLeveranciersTeBestellen();
+        return $lijst;
+    }
 }

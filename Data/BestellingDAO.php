@@ -88,6 +88,25 @@ class BestellingDAO {
     }
     
     public function getBestelLijstPerLeverancier($leverancierid){
-        $sql = "select id, klant_id, artikel_id, status_id from bestellingen where ";
+        $sql = "select id, klant_id, artikel_id, status_id from bestellingen where status_id = 1 and ";
+    }
+    
+    public function getLijstLeveranciersTeBestellen(){
+        $sql = " Select leveranciernaam, leverancier.id, count(*)
+                    from bestelling
+                    inner join artikel
+                    on bestelling.artikel_id = artikel.id
+                    inner join leverancier
+                    on artikel.leverancier_id = leverancier.id
+                    where status_id = 2
+                    group by leveranciernaam;";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $resultSet = $dbh->query($sql);
+        $Lijst = array();
+        foreach ($resultSet as $leverancier){
+            array_push($Lijst, $leverancier);
+        }
+        $dbh = null;
+        return $Lijst;
     }
 } 
