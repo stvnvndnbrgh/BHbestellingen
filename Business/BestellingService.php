@@ -40,4 +40,10 @@ class BestellingService {
         $lijst = $bestelDao->getLijstLeveranciersTeBestellen();
         return $lijst;
     }
+    
+    public function getBestellingLijstLeverancier($id){
+        $bestelDao = new BestellingDAO();
+        $lijst= $bestelDao->getBestelLijstPerLeverancier($id);
+        return $lijst;               
+    }
 }

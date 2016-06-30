@@ -12,9 +12,10 @@
         <ul>
             <?php
             foreach($lijst as $leverancier) { ?>
-            <li><a href="#"> <?php print($leverancier['leveranciernaam']); ?></a></li>
+            <li><a href="besteloverzichtperleverancier.php?action=<?php print($leverancier['id']); ?>"> <?php print($leverancier['leveranciernaam']); ?></a></li>
             
             <?php }
+            
             ?>
         </ul>
 

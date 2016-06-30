@@ -8,7 +8,7 @@ require_once 'Exceptions/NoPostcodeexception.php';
 
 class KlantDAO {
     public function getAll() {
-        $sql = "select klant.id, voornaam, familienaam, adres, postcode_id, postcode, gemeente, telefoonnr, email, klant_createdate, klant_editdate from klant, postcode where postcode_id = postcode.id";
+        $sql = "select klant.id, voornaam, familienaam, adres, postcode_id, postcode, gemeente, telefoonnr, email, klant_createdate, klant_editdate from klant, postcode where postcode_id = postcode.id order by familienaam";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();

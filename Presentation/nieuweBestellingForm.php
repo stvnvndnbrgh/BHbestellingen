@@ -16,7 +16,7 @@
                         <select name="selKlant">
                             <?php foreach($klantLijst as $klant) { ?>
                             <option value="<?php print($klant->getId()); ?>">
-                                <?php print($klant->getVoornaam()." ".$klant->getFamilienaam()) ?>
+                                <?php print($klant->getFamilienaam()." ".$klant->getVoornaam()) ?>
                             </option>
                             <?php } ?>
                         </select>
