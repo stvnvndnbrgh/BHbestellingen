@@ -46,4 +46,9 @@ class BestellingService {
         $lijst= $bestelDao->getBestelLijstPerLeverancier($id);
         return $lijst;               
     }
+    
+    public function BestellingPlaatsen($leverancierid){
+        $bestelDao = new BestellingDAO();
+        $bestelDao->plaatsLeveranciersbestelling($leverancierid);
+    }
 }

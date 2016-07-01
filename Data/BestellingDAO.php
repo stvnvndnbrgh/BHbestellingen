@@ -88,7 +88,7 @@ class BestellingDAO {
     }
     
     public function getBestelLijstPerLeverancier($leverancierid){
-        $sql = "select bestelling.id, familienaam, artikelnaam,  aantal, leveranciernaam
+        $sql = "select bestelling.id, familienaam, artikelnaam,  sum(aantal) as aantal, leveranciernaam ,leverancier.id as lev
                 from bestelling
                 inner join klant
                 on bestelling.klant_id = klant.id
@@ -97,7 +97,8 @@ class BestellingDAO {
                 inner join leverancier
                 on artikel.leverancier_id = leverancier.id
                 where status_id = 2
-                and leverancier_id = :leverancier_id;";
+                and leverancier_id = :leverancier_id
+                group by artikelnaam;";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $resultSet = $stmt->execute(array(':leverancier_id' => $leverancierid));
@@ -126,5 +127,21 @@ class BestellingDAO {
         }
         $dbh = null;
         return $Lijst;
+    }
+    
+    public function plaatsLeveranciersbestelling($leverancierid) {
+        $sql = " update bestelling
+        inner join artikel
+        on bestelling.artikel_id = artikel.id
+        inner join leverancier
+        on artikel.leverancier_id = leverancier.id
+        set status_id = 3
+        where status_id = 2
+        and
+        leverancier_id = :leverancier_id;";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':leverancier_id' => $leverancierid));
+        $dbh= null;
     }
 } 

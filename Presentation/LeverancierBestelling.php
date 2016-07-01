@@ -21,6 +21,7 @@
         <p>Elke Sleurs</p>
         
         <a href="toonallebestellingen.php"><button type="button">Terug naar bestellingen</button></a>
+        <a href="plaatsbestelling.php?action=<?php print($lijst[0]['lev']); ?>"><button type="button">Bestelling plaatsen</button></a>
 
     </body>
 </html>

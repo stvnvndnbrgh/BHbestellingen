@@ -7,7 +7,7 @@ require_once 'Business/ArtikelgroepService.php';
 if(isset($_GET['action']) && $_GET['action'] == "nieuwartikel"){
     $artikelSvc = new ArtikelService();
     $artikelSvc->voegArtikelToe($_POST['txtArtikel'], $_POST['selArtikelgroep'], $_POST['txtBarcode'], $_POST['selLeverancier']);
-    header("location: toonallebestellingen.php");
+    header("location: voegbestellingtoe.php");
     exit(0);
 }else{
     $LevSvc = new LeverancierService();

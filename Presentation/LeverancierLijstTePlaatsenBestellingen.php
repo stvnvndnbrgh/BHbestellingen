@@ -18,6 +18,9 @@
             
             ?>
         </ul>
+        
+        <a href="toonallebestellingen.php"><button type="button">Terug naar bestellingen</button></a>
+        
 
     </body>
 </html>
