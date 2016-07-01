@@ -7,7 +7,7 @@ $m = new PHPMailer();
 
 $m->isSMTP();
 $m->SMTPAuth = true;
-$m->SMTPDebug = 2;
+//$m->SMTPDebug = 2;
 
 $m->Host = 'smtp.gmail.com';
 $m->Username = 'stvnvndnbrgh@gmail.com';
@@ -19,10 +19,11 @@ $m->From = 'stvnvndnbrgh@gmail.com';
 $m->FromName = 'Bandagisterie Heverelee';
 $m->addReplyTo('info@bandagisterieheverlee.be','Reply address');
 $m->addAddress('stvnvndnbrgh@gmail.com', 'Steven van den Berghe');
-$m->addCC('stvnvndnbrgh@gmail.com', 'Steven van den Berghe');
+
+$m->isHTML(true);
 
 $m->Subject = 'Bestelling Bandagisterie Heverlee';
-$m->Body = 'Dit is een bestelling';
+$m->Body = '<p>Dit is een bestelling</p><br /><p>Met vriendelijke groeten,<p>';
 $m->AltBody = 'Dit is een bestelling';
 
 var_dump($m->send());
