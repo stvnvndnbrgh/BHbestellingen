@@ -1,7 +1,7 @@
 <?php
 //mailerpage.php
 
-require_once 'Vendor/autoload.php';
+require_once 'Vendor/vendor/autoload.php';
 
 $m = new PHPMailer();
 
