@@ -2,6 +2,7 @@
 //plaatsbestelling.php
 session_start();
 require_once 'Business/BestellingService.php';
+require_once 'Vendor/autoload.php';
 
 if(isset($_GET['action'])){
     $bestelSvc = new BestellingService();
