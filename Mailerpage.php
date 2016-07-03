@@ -22,10 +22,10 @@ $m->addAddress('stvnvndnbrgh@gmail.com', 'Steven van den Berghe');
 
 //$m->addAttachment('img/edit.png', 'prentje');
 
-$m->isHTML(true);
-
+//$m->isHTML(true);
+$lev = 'Distrac';
 $m->Subject = 'Bestelling Bandagisterie Heverlee';
-$m->Body = '<p>Dit is een bestelling</p><br /><p>Met vriendelijke groeten,<p>';
+$m->Body = 'hallo ' . $lev;
 $m->AltBody = 'Dit is een bestelling';
 
 var_dump($m->send());
