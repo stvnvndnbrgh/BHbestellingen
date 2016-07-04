@@ -27,5 +27,6 @@ if(isset($_GET['action']) && $_GET['action'] == "nieuweklant"){
     }
     $gemSvc = new GemeenteService();
     $gemeentelijst = $gemSvc->genereerLijst();
+    $gemeentelijstAlfa = $gemSvc->genereerLijstAlfa();
     include("Presentation/nieuweKlantForm.php");
 }

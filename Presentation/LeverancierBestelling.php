@@ -17,7 +17,7 @@
     $message .= "</ul>";
     $message .= "<p>Met vriendelijke groeten,</p>";
     $message .= "<p>Elke Sleurs</p>";
-    $_session["bericht"] = $message;
+    $_SESSION["bericht"] = $message;
     ?>
     
     <body>

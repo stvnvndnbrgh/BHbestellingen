@@ -8,6 +8,7 @@ class Bestelling {
     private $artikel_id;
     private $aantal;
     private $status_id;
+    private $verwittiging_id;
     private $createdate;
     private $editdate;
     

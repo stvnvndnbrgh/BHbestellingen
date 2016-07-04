@@ -77,6 +77,13 @@
                             </option>
                             <?php } ?>
                         </select>
+                        <select>
+                            <?php foreach ($gemeentelijstAlfa as $gem) { ?>
+                            <option value =<?php print($gem->getId()); ?>>
+                                <?php print($gem->getGemeente() ." - ". $gem->getPostcode()) ?>
+                            </option>                            
+                            <?php } ?>
+                        </select>
                     </td>
                 </tr>
                 <tr>
