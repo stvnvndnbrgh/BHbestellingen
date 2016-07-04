@@ -69,4 +69,12 @@ class BestellingService {
             $bestelDao->statusstapvooruit($id);
         }
     }
+    
+    public function getLijstTeVerwittigenKlanten(){
+        //$statusDao = new StatusDAO();
+        $bestelDao = new BestellingDAO();
+        //$klantDao = new KlantDAO();
+        $lijst = $bestelDao->LijstTeVerwittigen();
+        return $lijst;
+    }
 }

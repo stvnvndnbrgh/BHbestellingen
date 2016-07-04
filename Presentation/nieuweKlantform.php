@@ -20,7 +20,7 @@
                 <tr>
                     <td>Voornaam:</td>
                     <td>
-                        <input type="text" name="txtVoornaam" value="<?php
+                        <input type="text" name="txtVoornaam" required value="<?php
                         if(isset($error)) {
                             print_r($_SESSION['txtVoornaam']);
                             
@@ -30,7 +30,7 @@
                 <tr>
                     <td>Familienaam:</td>
                     <td>
-                        <input type="text" name="txtFamilienaam" value="<?php
+                        <input type="text" name="txtFamilienaam" required value="<?php
                         if(isset($error)) {
                             print_r($_SESSION['txtFamilienaam']);
                             

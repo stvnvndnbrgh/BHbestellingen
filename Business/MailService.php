@@ -37,8 +37,44 @@ class MailService {
         
     }
     
-    public function sendKlantBestellingGeleverd(){
+    public function sendKlantBestellingGeleverd($email){
+        $m = new PHPMailer();
+
+        $m->isSMTP();
+        $m->SMTPAuth = true;
+        //$m->SMTPDebug = 2;
+
+        $m->Host = 'smtp.gmail.com';
+        $m->Username = 'stvnvndnbrgh@gmail.com';
+        $m->Password = 'josdenos';
+        $m->SMTPSecure = 'ssl';
+        $m->Port = 465;
         
+        $m->From = 'stvnvndnbrgh@gmail.com';
+        $m->FromName = 'Bandagisterie Heverlee';
+        $m->addReplyTo('info@bandagisterieheverlee.be','Reply address');
+        $m->addAddress($email);
+        
+        $message = "<p>Beste, </p></br>";
+        $message .= "<p>Uw bestelling bij Bandagisterie Heverlee is toegekomen</p>";
+        $message .= "<p>U kan deze afhalen tijdens de openingsuren</p>";
+        $message .= "<table>";
+        $message .= "<tr><td>maandag</td><td>Gesloten</td></tr>";
+        $message .= "<tr><td>dinsdag</td><td>10:00 - 18:00</td></tr>";
+        $message .= "<tr><td>woensdag</td><td>10:00 - 18:00</td></tr>";
+        $message .= "<tr><td>donderdag</td><td>10:00 - 18:00</td></tr>";
+        $message .= "<tr><td>vrijdag</td><td>10:00 - 18:00</td></tr>";
+        $message .= "<tr><td>zaterdag</td><td>10:00 - 14:00</td></tr>";
+        $message .= "<tr><td>zondag</td><td>9:00 - 13:00</td></tr>";
+        $message .= "<p>Met vriendelijke groeten,</p>";
+        $message .= "<p>Elke Sleurs</p>";
+        
+        $m->isHTML(true);
+        $m->Subject = 'Bestelling Bandagisterie Heverlee';
+        $m->Body = $message;
+        $m->AltBody = 'Uw bestelling is toegekomen bij Bandagisterie Heverlee';
+        
+        $m->send();
     }
 }
 

@@ -164,4 +164,22 @@ class BestellingDAO {
         $stmt->execute(array(':id' => $id));
         $dbh= null;
     }
+    
+    public function LijstTeVerwittigen(){
+            
+        $sql = "SELECT bestelling.id, status_id, klant.email
+                FROM bestelling
+                INNER JOIN klant
+                ON bestelling.klant_id = klant.id
+                WHERE status_id = 4
+                AND klant.email <> ''";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $resultSet = $dbh->query($sql);
+        $Lijst = array();
+        foreach ($resultSet as $leverancier){
+            array_push($Lijst, $leverancier);
+        }
+        $dbh = null;
+        return $Lijst;    
+    }
 } 
