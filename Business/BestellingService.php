@@ -65,7 +65,7 @@ class BestellingService {
         $statusDao = new StatusDAO();
         $bestelDao = new BestellingDAO();
         $bestelling = $bestelDao->getById($id);
-        if($bestelling->getStatus_id()->getId() < 5){
+        if($bestelling->getStatus_id()->getId() < 6){
             $bestelDao->statusstapvooruit($id);
         }
     }
