@@ -33,3 +33,15 @@ input, select, button{
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+
+li{
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color:#000000;
+}
+a:hover{
+    color:#ff0000;
+}

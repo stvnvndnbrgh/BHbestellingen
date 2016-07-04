@@ -26,12 +26,13 @@ class BestellingService {
         return $bestelling;
     }
     
-    public function updateBestelling($id, $statusId) {
+    public function updateBestelling($id, $statusId, $aantal) {
         $statusDao = new StatusDAO();
         $bestellingDao = new BestellingDAO();
         //$status = $statusDao->getById($statusId);
         $bestelling = $bestellingDao->getById($id);
         $bestelling->setStatus_id($statusId);
+        $bestelling->setAantal($aantal);
         $bestellingDao->updateBestelling($bestelling);
     }
     

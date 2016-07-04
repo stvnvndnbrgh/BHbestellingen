@@ -24,6 +24,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Aantal:</td>
+                    <td>
+                        <input type="text" name ="txtAantal" value =<?php print($bestelling->getAantal()) ?> >
+                    </td>
+                </tr>
+                <tr>
                     <td>Current Status:</td>
                     <td>
                         <?php print($bestelling->getStatus_id()->getStatus()); ?>

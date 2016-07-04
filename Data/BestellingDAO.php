@@ -79,11 +79,12 @@ class BestellingDAO {
     }
     
     public function updateBestelling($bestelling) {
-        $sql = "update bestelling set status_id = :stati where bestelling.id = :id";
+        $sql = "update bestelling
+                set status_id = :stati, aantal = :aantal where bestelling.id = :id";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $idii = $bestelling->getStatus_id();
-        $stmt->execute(array(':stati' => $bestelling->getStatus_id(), ':id' => $bestelling->getId()));
+        $stmt->execute(array(':aantal' => $bestelling->getAantal(), ':stati' => $bestelling->getStatus_id(), ':id' => $bestelling->getId()));
         $dbh = null;
     }
     
