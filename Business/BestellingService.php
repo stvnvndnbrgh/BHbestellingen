@@ -51,4 +51,22 @@ class BestellingService {
         $bestelDao = new BestellingDAO();
         $bestelDao->plaatsLeveranciersbestelling($leverancierid);
     }
+    
+    public function stapterug($id){
+        $statusDao = new StatusDAO();
+        $bestelDao = new BestellingDAO();
+        $bestelling = $bestelDao->getById($id); 
+        if($bestelling->getStatus_id()->getId() > 2){
+            $bestelDao->statusstapterug($id);
+        }
+    }
+    
+    public function stapvooruit($id){
+        $statusDao = new StatusDAO();
+        $bestelDao = new BestellingDAO();
+        $bestelling = $bestelDao->getById($id);
+        if($bestelling->getStatus_id()->getId() < 5){
+            $bestelDao->statusstapvooruit($id);
+        }
+    }
 }

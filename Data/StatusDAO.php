@@ -26,5 +26,5 @@ class StatusDAO {
         $status = Status::create($rij['id'], $rij['stati'], $rij['color']);
         $dbh = null;
         return $status;
-    }
+    }       
 }

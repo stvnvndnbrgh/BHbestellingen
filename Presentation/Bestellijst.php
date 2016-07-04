@@ -31,8 +31,10 @@
                 <td><?php print($bestelling->getArtikel_id()->getLeverancier_id()->getLeveranciernaam()); ?></td>
                 <td><?php print($bestelling->getStatus_id()->getStatus()); ?></td>
                 <td align = center>
-                    <a href="bewerkbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/edit.png" /></a>
-                    <a href="verwijderbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/delete.png" /></a>
+                    <a href="statusterug.php?action=statusterug&id=<?php print($bestelling->getId())?>"><img src="img/arrow-circle-right.png" title='status terug' class="rotate180"/></a>
+                    <a href="statusvooruit.php?action=statusvooruit&id=<?php print($bestelling->getId())?>"><img src="img/arrow-circle-right.png" title='status vooruit'/></a>
+                    <a href="bewerkbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/edit.png" title='bewerken' /></a>
+                    <a href="verwijderbestelling.php?id=<?php print($bestelling->getId())?>"><img src="img/delete.png" title='delete'/></a>
                 </td>
                 <?php
                     $ed = new DateTime($bestelling->getEditdate());

@@ -144,4 +144,24 @@ class BestellingDAO {
         $stmt->execute(array(':leverancier_id' => $leverancierid));
         $dbh= null;
     }
+    
+    public function statusstapterug($id){
+        $sql = "update bestelling
+               set status_id = (status_id - 1)
+               where id = :id";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':id' => $id));
+        $dbh= null;
+    }
+    
+    public function statusstapvooruit($id){
+        $sql = "update bestelling
+               set status_id = (status_id + 1)
+               where id = :id";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':id' => $id));
+        $dbh= null;
+    }
 } 

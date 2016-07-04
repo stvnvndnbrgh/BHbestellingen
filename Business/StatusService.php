@@ -8,4 +8,6 @@ class StatusService {
         $lijst = $statusDao->getAll();
         return $lijst;
     }
+    
+    
 }
