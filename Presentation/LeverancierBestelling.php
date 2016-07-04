@@ -7,8 +7,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <?php
-    $message = "<h1>Bestelling te plaatsen bij: " . $lijst[0]['leveranciernaam'] . "</h1>";
-    $message .= "<p>Beste, </p>";
+    //$message = "<h1>Bestelling te plaatsen bij: " . $lijst[0]['leveranciernaam'] . "</h1>";
+    $message = "<p>Beste, </p>";
     $message .= "<p>Graag volgende bestelling:</p>";
     $message .= "<ul>";
     foreach($lijst as $rij) {
@@ -17,12 +17,14 @@
     $message .= "</ul>";
     $message .= "<p>Met vriendelijke groeten,</p>";
     $message .= "<p>Elke Sleurs</p>";
+    $_session["bericht"] = $message;
     ?>
     
     <body>
+        
+        <h1> Bestelling te plaatsen bij: <?php print $lijst[0]['leveranciernaam'] ?></h1>
         <?php print ($message); ?>
-        <!--<h1> Bestelling te plaatsen bij: <?php print $lijst[0]['leveranciernaam'] ?></h1>
-        <p>Beste, </p>
+        <!--<p>Beste, </p>
         <p>Graag volgende bestelling:</p>
         <ul>
             <?php foreach($lijst as $rij) { ?>
