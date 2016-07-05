@@ -66,6 +66,7 @@ class MailService {
         $message .= "<tr><td>vrijdag</td><td>10:00 - 18:00</td></tr>";
         $message .= "<tr><td>zaterdag</td><td>10:00 - 14:00</td></tr>";
         $message .= "<tr><td>zondag</td><td>9:00 - 13:00</td></tr>";
+        $message .= "</table>";
         $message .= "<p>Met vriendelijke groeten,</p>";
         $message .= "<p>Elke Sleurs</p>";
         
