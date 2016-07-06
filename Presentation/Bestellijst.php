@@ -10,7 +10,8 @@
         <h1>Bestellingen</h1>
         <a href="voegbestellingtoe.php"><button type="button">Nieuwe bestelling</button></a>        
         <a href="teplaatsenbestellingen.php"><button type="button">Bestelling -> Leverancier</button></a>
-        <a href="klantenverwittigen.php?action=verwittigen"><button type="button">Klanten verwittigen</button></a><br/><br />
+        <a href="klantenverwittigen.php?action=verwittigen"><button type="button">Klanten verwittigen</button></a>
+        <a href="toonalleklanten.php?action=klantentonen"><button type = "button">Klanten overzicht</button></a><br/><br />
         <table border: 1px solid black>
             <tr>
                 <th>Klant</th>

@@ -56,8 +56,8 @@ class MailService {
         $m->addAddress($email);
         
         $message = "<p>Beste, </p></br>";
-        $message .= "<p>Uw bestelling bij Bandagisterie Heverlee is toegekomen</p>";
-        $message .= "<p>U kan deze afhalen tijdens de openingsuren</p>";
+        $message .= "<p>Uw bestelling bij Bandagisterie Heverlee is toegekomen.</p>";
+        $message .= "<p>U kan deze afhalen tijdens de openingsuren:</p>";
         $message .= "<table>";
         $message .= "<tr><td>maandag</td><td>Gesloten</td></tr>";
         $message .= "<tr><td>dinsdag</td><td>10:00 - 18:00</td></tr>";

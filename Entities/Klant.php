@@ -11,23 +11,25 @@ class Klant {
     private $adres;
     private $postcode_id;
     private $telefoonnr;
+    private $email;
     private $createdate;
     private $editdate;
     
-    public function __construct($id, $voornaam, $familienaam, $adres, $postcode_id, $telefoonnr, $createdate, $editdate) {
+    public function __construct($id, $voornaam, $familienaam, $adres, $postcode_id, $telefoonnr, $email, $createdate, $editdate) {
         $this->id = $id;
         $this->voornaam = $voornaam;
         $this->familienaam = $familienaam;
         $this->adres = $adres;
         $this->postcode_id = $postcode_id;
         $this->telefoonnr = $telefoonnr;
+        $this->email = $email;
         $this->createdate = $createdate;
         $this->editdate = $editdate;
     }
 
-    public static function create($id, $voornaam, $familienaam, $adres, $postcode_id, $telefoonnr, $createdate, $editdate) {
+    public static function create($id, $voornaam, $familienaam, $adres, $postcode_id, $telefoonnr, $email, $createdate, $editdate) {
         if(!isset(self::$mapId[$id])){
-            self::$mapId[$id] = new Klant($id, $voornaam, $familienaam, $adres, $postcode_id, $telefoonnr, $createdate, $editdate);
+            self::$mapId[$id] = new Klant($id, $voornaam, $familienaam, $adres, $postcode_id, $telefoonnr, $email, $createdate, $editdate);
         }
         return self::$mapId[$id];
     }
@@ -55,6 +57,10 @@ class Klant {
 
     public function getTelefoonnr() {
         return $this->telefoonnr;
+    }
+    
+    public function getEmail() {
+        return $this->email;
     }
 
     public function getCreatedate() {
@@ -84,6 +90,10 @@ class Klant {
 
     public function setTelefoonnr($telefoonnr) {
         $this->telefoonnr = $telefoonnr;
+    }
+    
+    public function setEmail($email) {
+        $this->email = $email;
     }
 
     public function setCreatedate($createdate) {
