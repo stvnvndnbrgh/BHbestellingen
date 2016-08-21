@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Klanten</h1>
+        <a href="toonallebestellingen.php"><button type="button">Terug naar bestellingen</button></a><br /><br />
         <table border: 1px solid black>
             <tr>
                 <th>Familienaam</th>  
