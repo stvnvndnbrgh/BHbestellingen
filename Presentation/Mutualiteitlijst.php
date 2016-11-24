@@ -19,7 +19,7 @@
             </tr>
             <?php foreach($lijst as $mutualiteit) { ?>
             <tr>
-                <td><?php print($mutualiteit->getMut_nummer()); ?></td>
+                <td><a><?php print($mutualiteit->getMut_nummer()); ?></a></td>
                 <td><?php print($mutualiteit->getMut_naam()); ?></td>
                 <td><?php print($mutualiteit->getMut_adres()); ?></td>
                 <td><?php print($mutualiteit->getMut_postcode_id()->getPostcode() . " - " . $mutualiteit->getMut_postcode_id()->getGemeente()); ?></td>
