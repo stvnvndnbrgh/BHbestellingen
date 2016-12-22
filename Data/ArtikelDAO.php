@@ -17,6 +17,7 @@ class ArtikelDAO {
             $artikel = Artikel::create($rij['id'], $rij['artikelnaam'], $artikelgroep, $rij['barcode'], $leverancier);
             array_push($lijst, $artikel);
         }
+        $dbh = null;
         return $lijst;
     }
     

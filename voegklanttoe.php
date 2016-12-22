@@ -13,6 +13,7 @@ if(isset($_GET['action']) && $_GET['action'] == "nieuweklant"){
         $_SESSION['txtTelefoon'] = $_POST['txtTelefoon'];
         $_SESSION['txtEmail'] = $_POST['txtEmail'];
         $klantSvc = new KlantService();
+        
         $klantSvc->voegKlantToe($_POST['txtVoornaam'], $_POST['txtFamilienaam'], $_POST['txtAdres'], $_POST['selGemeente'], $_POST['txtTelefoon'], $_POST['txtEmail']);
         header("location: voegbestellingtoe.php");
         exit(0);

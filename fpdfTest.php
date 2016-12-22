@@ -45,9 +45,13 @@ $pdf->SetXY(89.7, 147.1);
 $pdf->Write(0, 'X');
 
 // Als er geen derde betalers regeling is
-$pdf->Line(25,193.4,140,193.4);
+// $pdf->Line(25,193.4,140,193.4);
 $pdf->Line(25,196.4,58,196.4);
 $pdf->Line(25,199.4,47,199.4);
+$pdf->SetXY(63, 197.9);
+$pdf->SetFont('Times', '', 12);
+$pdf->Write(0, 'Geen derdebetalersregeling');
+$pdf->SetFont('Times', '', 7);
 
 // Naam van de voorschrijver invullen
 $pdf->SetXY(50, 150.2);

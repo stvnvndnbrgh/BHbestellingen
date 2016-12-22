@@ -2,6 +2,8 @@
     "require": {
         "phpmailer/phpmailer": "~5.2",
         "setasign/fpdf": "1.8.1",
-        "setasign/fpdi": "1.6.1"
+        "setasign/fpdi": "1.6.1",
+        "datatables/datatables": "1.10.13",
+        "components/jquery": "3.1.1"
     }   
 }
