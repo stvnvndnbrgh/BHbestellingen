@@ -3,14 +3,18 @@
 require_once 'Data/KousDAO.php';
 
 class KousService {
-    
+    public function getKousByProperties($merk, $kwaliteit, $drukklasse, $lengte, $maat, $kleur, $voetgrootte, $bijzonderheden){
+        $KousDao = new KousDAO();
+        $kous = $KousDao->getKousByProperties($merk, $kwaliteit, $drukklasse, $lengte, $maat, $kleur, $voetgrootte, $bijzonderheden);
+        return $kous;
+    }
     public function existBarcode($barcode) {
         $KousDao = new KousDAO();
         $lijst = $KousDao->existBarcode($barcode);
         return $lijst;
     }
     
-    public function getKousenOverzicht($barcode){
+    public function getKousenOverzicht(){
         $KousDao = new KousDAO();
         $lijst = $KousDao->getAll();
         return $lijst;

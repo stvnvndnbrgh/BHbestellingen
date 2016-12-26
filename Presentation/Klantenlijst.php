@@ -13,6 +13,7 @@ require_once 'Vendor/vendor/autoload.php';
     <body>
         <h1>Klanten</h1>
         <a href="toonallebestellingen.php"><button type="button">Terug naar bestellingen</button></a>
+        <a href="toonallekousen.php?action=kousentonen"><button type="button">Kousen overzicht</button></a>
         <a href="voegklanttoe.php"><button type="button">Nieuwe klant</button></a><br /><br />
         <form method="post" action="toonalleklanten.php?action=zoek">
             <input type="text" name="zoekterm">

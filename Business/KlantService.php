@@ -23,4 +23,17 @@ class KlantService {
         $lijst = $klantDao->getByBeginsWith($zoekterm . "%");
         return $lijst;
     }
+    
+    public function updateKlant($id, $voornaam, $familienaam, $adres, $gemeente, $telefoonnr, $email){
+        $klantDao = new KlantDAO();
+        $klant = $klantDao->getById($id);
+        $klant->setVoornaam($voornaam);
+        $klant->setFamilie($familienaam);
+        $klant->setAdres($adres);
+        $klant->setPostcode_id($gemeente);
+        $klant->setTelefoonnr($telefoonnr);
+        $klant->setEmail($email);
+        $klant->setRijksregisternr($rijksregisternummer);
+        $klantDao->updateKlant($klant);
+    }
 }

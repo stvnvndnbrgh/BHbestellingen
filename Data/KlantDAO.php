@@ -7,6 +7,33 @@ require_once 'Entities/Postcode.php';
 require_once 'Exceptions/NoPostcodeexception.php';
 
 class KlantDAO {
+    
+    public function updateKlant($klant) {
+        $sql = "update klant
+                set
+                voornaam = :voornaam,
+                familienaam = :familienaam,
+                adres = :adres,
+                postcode_id = :postcode_id,
+                telefoonnr = :telefoonnr,
+                email = :email,
+                rijksregisternr = :rijksregisternr,
+                where
+                id = :id
+                ";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':voornaam' => $klant->getVoornaam(),
+            ':familienaam' => $klant->getFamilienaam(),
+            ':adres' => $klant->getAdres(),
+            ':postcode_id' => $klant->getPostcode_id(),
+            ':telefoonnr' => $klant->getTelefoonnr(),
+            ':email' => $klant->getEmail(),
+            ':rijksregisternr' => $klant->getRiksregisternr(),
+            ':id' => $klant->getId()));
+        $dbh = null;
+    }
+    
     public function getAll() {
         $sql = "select klant.id, voornaam, familienaam, adres, postcode_id, postcode, gemeente, telefoonnr, email, klant_createdate, klant_editdate from klant, postcode where postcode_id = postcode.id order by familienaam";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
