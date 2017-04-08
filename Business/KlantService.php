@@ -24,7 +24,7 @@ class KlantService {
         return $lijst;
     }
     
-    public function updateKlant($id, $voornaam, $familienaam, $adres, $gemeente, $telefoonnr, $email){
+    public function updateKlant($id, $voornaam, $familienaam, $adres, $gemeente, $telefoonnr, $email, $rijksregisternummer){
         $klantDao = new KlantDAO();
         $klant = $klantDao->getById($id);
         $klant->setVoornaam($voornaam);
