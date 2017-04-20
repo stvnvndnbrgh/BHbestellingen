@@ -45,3 +45,7 @@ a {
 a:hover{
     color:#0000FF;
 }
+
+form#jobstTeenkap {
+    background-image:  url('img/jobst_teen_resultaat.png');
+}
