@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Jobst Teenkap Maatwerk</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <style>
             form#jobstTeenkap {
                 width: 100%;

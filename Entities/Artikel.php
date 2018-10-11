@@ -10,7 +10,7 @@ class Artikel {
     private $artikelgroep_id;
     private $barcode;
     private $leverancier_id;
-    
+
     public function __construct($id, $artikelnaam, $artikelgroep_id, $barcode, $leverancier_id) {
         $this->id = $id;
         $this->artikelnaam = $artikelnaam;
